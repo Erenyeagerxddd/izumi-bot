@@ -25,7 +25,7 @@ let extra = "";
 if (message.quoted.mtype === "imageMessage") {
   const img = message.quoted.msg.imageMessage;
   extra = `Resolution: ${img.width}x${img.height}`;
-} else if (m.quoted.mtype === "videoMessage") {
+} else if (message.quoted.mtype === "videoMessage") {
   const vid = message.quoted.msg.videoMessage;
   extra = `Resolution: ${vid.width}x${vid.height}\nDuration: ${vid.seconds || vid.duration || 'unknown'} sec`;
 } else if (message.quoted.mtype === "audioMessage") {
@@ -34,7 +34,7 @@ if (message.quoted.mtype === "imageMessage") {
 }
 
 const caption = `*Media Info:*\n` +
-                `- Type: ${m.quoted.mtype}\n` +
+                `- Type: ${message.quoted.mtype}\n` +
                 `- MIME: ${mimetype}\n` +
                 `- Extension: .${ext}\n` +
                 `- Size: ${size} KB\n` +
